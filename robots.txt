@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://afmportsmouth.co.uk/sitemap.xml

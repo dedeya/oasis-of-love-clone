@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leadership | Oasis of Love</title>
+    <meta name="description" content="Meet the leadership team at Oasis of Love, AFMIM UK Portsmouth Assembly.">
+    <link rel="canonical" href="https://afmportsmouth.co.uk/leadership.html">
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://afmportsmouth.co.uk/leadership.html">
+    <meta property="og:title" content="Leadership | Oasis of Love – AFM Portsmouth">
+    <meta property="og:description" content="Meet the leadership team at Oasis of Love, AFMIM UK Portsmouth Assembly.">
+    <meta property="og:image" content="https://afmportsmouth.co.uk/logo/afm%20logo.avif">
+    <meta property="og:site_name" content="Oasis of Love – AFM Portsmouth">
+    <meta property="og:locale" content="en_GB">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Leadership | Oasis of Love – AFM Portsmouth">
+    <meta name="twitter:description" content="Meet the leadership team at Oasis of Love, AFMIM UK Portsmouth Assembly.">
+    <meta name="twitter:image" content="https://afmportsmouth.co.uk/logo/afm%20logo.avif">
+    <link rel="icon" type="image/avif" href="logo/afm%20logo.avif">
+    <link rel="apple-touch-icon" href="logo/afm%20logo.avif">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Lato:wght@400;700;900&family=Cinzel:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        :root {
+            --navy:#07111f;
+            --navy-mid:#0e1f38;
+            --gold:#c9a84c;
+            --gold-light:#e8c87a;
+            --cream:#f7f1e7;
+            --text:#213047;
+            --radius:18px;
+            --t:0.35s;
+            --ease:cubic-bezier(.25,.46,.45,.94);
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Lato', sans-serif;
+            background: linear-gradient(160deg, #f8f2e8 0%, #f4e7cf 55%, #f7efe1 100%);
+            color: var(--text);
+            line-height: 1.7;
+        }
+        .top {
+            background: linear-gradient(135deg, var(--navy), var(--navy-mid));
+            color: #fff;
+            padding: 2.2rem 1.2rem;
+            text-align: center;
+            border-bottom: 3px solid var(--gold);
+        }
+        .brand {
+            display: inline-flex;
+            align-items: center;
+            gap: .75rem;
+            margin-bottom: .8rem;
+        }
+        .brand img { width: 56px; height: 56px; border-radius: 50%; border: 2px solid var(--gold); }
+        .brand .name {
+            font-family: 'Cinzel', serif;
+            font-size: 1rem;
+            letter-spacing: .7px;
+        }
+        .brand .sub {
+            color: var(--gold-light);
+            font-size: .7rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: .7rem;
+        }
+        .intro {
+            max-width: 760px;
+            margin: 0 auto;
+            color: rgba(255,255,255,.82);
+        }
+        .actions {
+            margin-top: 1.25rem;
+            display: flex;
+            justify-content: center;
+            gap: .8rem;
+            flex-wrap: wrap;
+        }
+        .btn {
+            padding: .72rem 1.2rem;
+            border-radius: 999px;
+            font-weight: 900;
+            letter-spacing: .8px;
+            font-size: .78rem;
+            text-transform: uppercase;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: .45rem;
+        }
+        .btn-main {
+            background: linear-gradient(135deg, #a07030, #e8c87a);
+            color: #07111f;
+        }
+        .btn-ghost {
+            border: 1px solid rgba(255,255,255,.45);
+            color: #fff;
+        }
+        .wrap {
+            max-width: 1220px;
+            margin: 0 auto;
+            padding: 3.2rem 1.2rem 4.2rem;
+        }
+        .leadership-carousel {
+            display: grid;
+            grid-template-columns: auto 1fr auto;
+            gap: .75rem;
+            align-items: center;
+        }
+        .leadership-nav {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: 1px solid rgba(160,112,48,.45);
+            background: rgba(255,255,255,.7);
+            color: #6d4b1f;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: transform var(--t), background var(--t), color var(--t), opacity var(--t);
+        }
+        .leadership-nav:hover {
+            transform: translateY(-2px);
+            background: rgba(201,168,76,.28);
+            color: #4e3416;
+        }
+        .leadership-nav:disabled {
+            opacity: .45;
+            cursor: not-allowed;
+            transform: none;
+        }
+        .leadership-viewport {
+            overflow: hidden;
+        }
+        .grid {
+            --lead-cols: 3;
+            --lead-gap: 1.2rem;
+            display: flex;
+            gap: var(--lead-gap);
+            transition: transform var(--t) var(--ease);
+            will-change: transform;
+        }
+        .card {
+            background: rgba(255,255,255,.8);
+            border: 1px solid rgba(160,112,48,.2);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: 0 10px 28px rgba(0,0,0,.1);
+            flex: 0 0 calc((100% - (var(--lead-gap) * (var(--lead-cols) - 1))) / var(--lead-cols));
+            min-width: 0;
+        }
+        .card img {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            object-fit: contain;
+            object-position: 50% 12%;
+            padding: .9rem .55rem 0;
+            background: #ffffff;
+            display: block;
+        }
+        .card img.img-blend {
+            background: transparent;
+            mix-blend-mode: multiply;
+        }
+        .body { padding: 1rem 1rem 1.2rem; }
+        .role {
+            display: inline-flex;
+            align-items: center;
+            gap: .4rem;
+            font-size: .66rem;
+            font-weight: 900;
+            letter-spacing: 1.1px;
+            text-transform: uppercase;
+            border: 1px solid rgba(160,112,48,.35);
+            background: rgba(201,168,76,.16);
+            color: #6d4b1f;
+            border-radius: 999px;
+            padding: .26rem .62rem;
+            margin-bottom: .52rem;
+        }
+        .body h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.28rem;
+            line-height: 1.25;
+            margin-bottom: .55rem;
+            color: #0f1f38;
+        }
+        .body p { font-size: .93rem; color: #465167; }
+
+        /* Footer (kept consistent with homepage) */
+        footer { background:var(--navy); position:relative; overflow:hidden; }
+        footer::before {
+            content:''; position:absolute; top:0; left:0; right:0; height:3px;
+            background:linear-gradient(90deg,var(--gold),var(--gold-light),var(--gold));
+        }
+        .footer-grid {
+            max-width:1320px; margin:0 auto; padding:5.5rem 2rem 3rem;
+            display:grid; grid-template-columns:2fr 1fr 1fr 1.5fr; gap:3.5rem;
+        }
+        .f-brand .f-logo-row { display:flex; align-items:center; gap:.75rem; margin-bottom:1.5rem; }
+        .f-brand .f-logo-row img { width:56px; height:56px; object-fit:contain; border-radius:50%; border:2px solid var(--gold); }
+        .f-brand .f-logo-row .f-name { font-family:'Cinzel',serif; color:#fff; font-size:1rem; font-weight:600; display:block; }
+        .f-brand .f-logo-row .f-sub  { color:var(--gold); font-size:.65rem; letter-spacing:2px; text-transform:uppercase; display:block; }
+        .f-brand p { color:rgba(255,255,255,.45); font-size:.88rem; line-height:1.75; margin-bottom:1.5rem; }
+        .f-social { display:flex; gap:.65rem; }
+        .f-social a {
+            width:40px; height:40px;
+            background:rgba(255,255,255,.06);
+            border:1px solid rgba(255,255,255,.1);
+            border-radius:50%;
+            display:flex; align-items:center; justify-content:center;
+            color:rgba(255,255,255,.55); font-size:.9rem;
+            transition:all var(--t) var(--ease);
+        }
+        .f-social a:hover { background:var(--gold); border-color:var(--gold); color:var(--navy); transform:translateY(-3px); }
+        .f-col h4 { font-family:'Cinzel',serif; font-size:.75rem; color:var(--gold); letter-spacing:2.5px; text-transform:uppercase; margin-bottom:1.5rem; }
+        .f-col ul { list-style:none; }
+        .f-col ul li { margin-bottom:.7rem; }
+        .f-col ul li a { color:rgba(255,255,255,.45); font-size:.88rem; display:flex; align-items:center; gap:.45rem; transition:color var(--t), padding-left var(--t); text-decoration:none; }
+        .f-col ul li a i { font-size:.65rem; color:var(--gold); }
+        .f-col ul li a:hover { color:var(--gold-light); padding-left:.25rem; }
+        .fc-item { display:flex; align-items:flex-start; gap:.75rem; margin-bottom:1rem; }
+        .fc-item i { color:var(--gold); width:16px; font-size:.82rem; margin-top:3px; }
+        .fc-item span, .fc-item a { color:rgba(255,255,255,.45); font-size:.88rem; line-height:1.6; text-decoration:none; }
+        .fc-item a:hover { color:var(--gold-light); }
+        .footer-bottom {
+            border-top:1px solid rgba(255,255,255,.07);
+            max-width:1320px; margin:0 auto; padding:1.5rem 2rem;
+            display:flex; align-items:center; justify-content:space-between;
+            flex-wrap:wrap; gap:1rem;
+        }
+        .footer-bottom p { color:rgba(255,255,255,.3); font-size:.82rem; }
+        .legal { display:flex; gap:1.5rem; }
+        .legal a { color:rgba(255,255,255,.3); font-size:.82rem; text-decoration:none; }
+        .legal a:hover { color:var(--gold); }
+
+        @media (max-width: 1024px) {
+            .grid { --lead-cols: 2; }
+            .footer-grid { grid-template-columns:1fr 1fr; gap:2.5rem; }
+        }
+        @media (max-width: 700px) {
+            .leadership-nav { width: 40px; height: 40px; }
+            .grid { --lead-cols: 1; }
+            .footer-grid { grid-template-columns:1fr; gap:2rem; }
+            .footer-bottom { flex-direction:column; text-align:center; }
+            .legal { flex-wrap:wrap; justify-content:center; gap:1rem; }
+        }
+    </style>
+</head>
+<body>
+    <header class="top">
+        <div class="brand">
+            <img src="logo/afm%20logo.avif" alt="Oasis of Love logo">
+            <div>
+                <div class="name">Oasis of Love</div>
+                <div class="sub">AFM Portsmouth</div>
+            </div>
+        </div>
+        <h1>Meet Our Leadership Team</h1>
+        <p class="intro">At Oasis of Love, our leadership team is dedicated to guiding and serving our church with passion and faith. Each member brings unique gifts, working together to inspire and support your spiritual growth.</p>
+        <div class="actions">
+            <a class="btn btn-main" href="index.html#contact"><i class="fas fa-envelope"></i> Get In Touch</a>
+            <a class="btn btn-ghost" href="index.html"><i class="fas fa-arrow-left"></i> Back To Home</a>
+        </div>
+    </header>
+
+    <main class="wrap">
+        <div class="leadership-carousel" data-leadership-carousel>
+            <button class="leadership-nav" type="button" data-leadership-prev aria-label="Show previous leaders"><i class="fas fa-chevron-left"></i></button>
+            <div class="leadership-viewport">
+                <section class="grid" data-leadership-track>
+            <article class="card">
+                <img src="images/Pst%20Andy%20%26%20Amai1.jpg.jpg" alt="Senior Pastors Andrew and Dorcas Sithole" loading="lazy">
+                <div class="body">
+                    <span class="role"><i class="fas fa-cross"></i> Senior Pastors</span>
+                    <h2>Andrew and Dorcas Sithole</h2>
+                    <p>Are the senior pastors at Oasis of Love, deeply committed to serving the Lord and guiding the congregation with love, faith, and devotion.</p>
+                </div>
+            </article>
+            <article class="card">
+                <img src="images/Martin%20n%20Rumbidzai.png" alt="Elders Martin and Rumbidzai Dube" loading="lazy">
+                <div class="body">
+                    <span class="role"><i class="fas fa-hands-praying"></i> Elders</span>
+                    <h2>Martin and Rumbidzai Dube</h2>
+                    <p>Are the elders at Oasis of Love working alongside our senior pastors, providing guidance, support, and leadership to help grow the church and nurture the congregation in their spiritual journey.</p>
+                </div>
+            </article>
+            <article class="card">
+                <img src="images/Pst%20Privy.png" alt="Youth Leader Mrs Priv Obrike" loading="lazy">
+                    <div class="body">
+                        <span class="role"><i class="fas fa-children"></i> Youth Leader</span>
+                        <h2>Mrs Priv Obrike</h2>
+                        <p>Is the Youth Leader at Oasis of Love, passionate about empowering and guiding the next generation to grow in faith, purpose, and community.</p>
+                </div>
+            </article>
+            <article class="card">
+                <img src="images/Dr%20Moses%20Chiwandamira.png" alt="Administrator Dr Moses Chiwandamira" loading="lazy">
+                <div class="body">
+                    <span class="role"><i class="fas fa-gear"></i> Administrator</span>
+                    <h2>Dr Moses Chiwandamira</h2>
+                    <p>Is the Church Administrator at Oasis of Love, dedicated to ensuring smooth operations and supporting the church’s ministries with efficiency and care.</p>
+                </div>
+            </article>
+            <article class="card">
+                <img src="images/Doc%20Machokoto.png" alt="Committee Member Doc Washington Machokoto" loading="lazy">
+                <div class="body">
+                    <span class="role"><i class="fas fa-users"></i> Committee Member</span>
+                    <h2>Doc Washington Machokoto</h2>
+                    <p>Serves as a committee member at Oasis of Love, supporting church initiatives and leadership with dedication, wisdom, and a heart for service.</p>
+                </div>
+            </article>
+            <article class="card">
+                <img src="images/Doc%20Muzivi.png" alt="Committee Member Doc Tarcissio Muzivi" loading="lazy">
+                <div class="body">
+                    <span class="role"><i class="fas fa-users"></i> Committee Member</span>
+                    <h2>Doc Tarcissio Muzivi</h2>
+                    <p>Serves as a committee member at Oasis of Love, supporting church initiatives and leadership with dedication, wisdom, and a heart for service.</p>
+                </div>
+            </article>
+            <article class="card">
+                <img src="images/Deacon%20Shoko.png" alt="Deacon Nyaradzai Martin Shoko, Church Secretary" loading="lazy" class="focus-shoko">
+                <div class="body">
+                    <span class="role"><i class="fas fa-file-signature"></i> Church Secretary</span>
+                    <h2>Deacon Nyaradzai Martin Shoko</h2>
+                    <p>Serves as Church Secretary at Oasis of Love, supporting church administration and communication with diligence and care.</p>
+                </div>
+            </article>
+            <article class="card">
+                <img src="images/Lorna%20Chivandire.png" alt="Ms Lorna Chivandire, Board of Trustees" loading="lazy">
+                <div class="body">
+                    <span class="role"><i class="fas fa-shield-halved"></i> Board of Trustees</span>
+                    <h2>Ms Lorna Chivandire</h2>
+                    <p>Serves on the Board of Trustees at Oasis of Love, providing oversight and governance to help the church fulfil its mission with integrity and purpose.</p>
+                </div>
+            </article>
+                </section>
+            </div>
+            <button class="leadership-nav" type="button" data-leadership-next aria-label="Show next leaders"><i class="fas fa-chevron-right"></i></button>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="f-brand">
+                <div class="f-logo-row">
+                    <img src="logo/afm%20logo.avif" alt="AFM Portsmouth logo">
+                    <div>
+                        <span class="f-name">Oasis of Love</span>
+                        <span class="f-sub">AFM Portsmouth</span>
+                    </div>
+                </div>
+                <p>A Christ-centered community dedicated to sharing God's love, fostering spiritual growth, and empowering lives through faith in Portsmouth, UK.</p>
+                <div class="f-social">
+                    <a href="https://www.facebook.com/share/1677ujpugg/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.youtube.com/@OasisofLoveAFM" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.instagram.com/oasisoflove.afm/profilecard/?igsh=YWk5bGpwOHJzcWJh" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="f-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html#home"><i class="fas fa-chevron-right"></i>Home</a></li>
+                    <li><a href="index.html#about"><i class="fas fa-chevron-right"></i>About</a></li>
+                    <li><a href="index.html#leadership"><i class="fas fa-chevron-right"></i>Leadership</a></li>
+                    <li><a href="index.html#ministries"><i class="fas fa-chevron-right"></i>Ministries</a></li>
+                    <li><a href="index.html#events"><i class="fas fa-chevron-right"></i>Events</a></li>
+                </ul>
+            </div>
+            <div class="f-col">
+                <h4>Connect</h4>
+                <ul>
+                    <li><a href="index.html#leadership"><i class="fas fa-chevron-right"></i>Leadership</a></li>
+                    <li><a href="index.html#contact"><i class="fas fa-chevron-right"></i>Get in Touch</a></li>
+                    <li><a href="index.html#archive"><i class="fas fa-chevron-right"></i>Past Archive</a></li>
+                    <li><a href="index.html#events"><i class="fas fa-chevron-right"></i>Upcoming Events</a></li>
+                    <li><a href="index.html#videos"><i class="fas fa-chevron-right"></i>Media</a></li>
+                </ul>
+            </div>
+            <div class="f-col">
+                <h4>Contact Us</h4>
+                <div class="fc-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Trafalgar School, London Road, Hilsea, Portsmouth PO2 9RJ</span>
+                </div>
+                <div class="fc-item">
+                    <i class="fas fa-phone"></i>
+                    <span><a href="tel:+447723688708">+44 7723 688708</a><br><a href="tel:+447789794688">+44 7789 794688</a></span>
+                </div>
+                <div class="fc-item">
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:info@afmportsmouth.co.uk">info@afmportsmouth.co.uk</a>
+                </div>
+                <div class="fc-item">
+                    <i class="fas fa-clock"></i>
+                    <span>Sunday: 10:00 AM - 1:00 PM</span>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>©<span id="copyrightYear">2024</span> AFM Portsmouth - Oasis of Love. Developed by AFM Portsmouth Media Team.</p>
+            <div class="legal">
+                <a href="#">Terms &amp; Conditions</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Accessibility</a>
+            </div>
+        </div>
+    </footer>
+    <script>
+        const copyrightYear = document.getElementById('copyrightYear');
+        if (copyrightYear) {
+            copyrightYear.textContent = String(new Date().getFullYear());
+        }
+
+        function initLeadershipCarousel(carousel) {
+            const track = carousel.querySelector('[data-leadership-track]');
+            const prevBtn = carousel.querySelector('[data-leadership-prev]');
+            const nextBtn = carousel.querySelector('[data-leadership-next]');
+            const cards = track ? Array.from(track.children) : [];
+
+            if (!track || !prevBtn || !nextBtn || cards.length <= 1) return;
+
+            let index = 0;
+
+            function getCols() {
+                const cols = parseInt(getComputedStyle(track).getPropertyValue('--lead-cols'), 10);
+                return Number.isFinite(cols) && cols > 0 ? cols : 1;
+            }
+
+            function getStepSize() {
+                const firstCard = cards[0];
+                if (!firstCard) return 0;
+                const gap = parseFloat(getComputedStyle(track).gap) || 0;
+                return firstCard.getBoundingClientRect().width + gap;
+            }
+
+            function maxIndex() {
+                return Math.max(0, cards.length - getCols());
+            }
+
+            function render() {
+                const limit = maxIndex();
+                index = Math.min(index, limit);
+                const step = getStepSize();
+                track.style.transform = `translateX(${-index * step}px)`;
+                prevBtn.disabled = index <= 0;
+                nextBtn.disabled = index >= limit;
+            }
+
+            prevBtn.addEventListener('click', () => {
+                index = Math.max(0, index - 1);
+                render();
+            });
+
+            nextBtn.addEventListener('click', () => {
+                index = Math.min(maxIndex(), index + 1);
+                render();
+            });
+
+            window.addEventListener('resize', render);
+            render();
+        }
+
+        document.querySelectorAll('[data-leadership-carousel]').forEach(initLeadershipCarousel);
+
+    </script>
+</body>
+</html>
