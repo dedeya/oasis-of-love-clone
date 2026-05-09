@@ -1595,22 +1595,41 @@
         .poster-watermark {
             display:none;
             position:absolute;
-            inset:0;
+            top:44%;
+            left:50%;
+            width:145%;
             align-items:center;
             justify-content:center;
-            background:rgba(7,17,31,.55);
-            color:#fff;
-            font-size:1.35rem;
-            font-weight:700;
-            letter-spacing:.08em;
+            transform:translate(-50%, -50%) rotate(-24deg);
+            background:linear-gradient(90deg, rgba(183,15,21,.95) 0%, rgba(255,72,40,.98) 48%, rgba(183,15,21,.95) 100%);
+            color:#fff8d6;
+            font-size:clamp(1rem, 2.3vw, 2rem);
+            font-weight:900;
+            letter-spacing:.16em;
             text-align:center;
             text-transform:uppercase;
             pointer-events:none;
-            padding:1rem;
-            text-shadow:0 2px 8px rgba(0,0,0,.7);
+            padding:.8rem 2.4rem;
+            border-top:2px solid rgba(255,255,255,.75);
+            border-bottom:2px solid rgba(255,255,255,.75);
+            box-shadow:0 0 0 1px rgba(0,0,0,.32), 0 12px 36px rgba(0,0,0,.55), 0 0 34px rgba(255,113,71,.45);
+            text-shadow:0 2px 2px rgba(0,0,0,.7), 0 0 14px rgba(0,0,0,.58);
+            z-index:2;
+            filter:saturate(1.12) contrast(1.08);
+            animation:posterWatermarkPulse 1.9s ease-in-out infinite;
         }
         .poster-watermark.visible {
             display:flex;
+        }
+        @keyframes posterWatermarkPulse {
+            0%, 100% {
+                transform:translate(-50%, -50%) rotate(-24deg) scale(1);
+                opacity:.97;
+            }
+            50% {
+                transform:translate(-50%, -50%) rotate(-24deg) scale(1.03);
+                opacity:1;
+            }
         }
         .event-caption {
             padding:1rem 1.25rem;
