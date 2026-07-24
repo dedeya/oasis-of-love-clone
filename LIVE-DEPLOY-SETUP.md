@@ -47,3 +47,22 @@ Push any small change to main. The workflow will run under:
 
 - The workflow excludes .github, .git, node_modules, and local metadata files.
 - If your host uses SFTP instead of FTP/FTPS, use an SFTP deploy action instead.
+
+## Site Stats Setup (Traffic + Location)
+
+This site includes:
+
+- `analytics.php` (collects traffic and builds stats)
+- `analytics-dashboard.php` (protected dashboard view)
+
+To secure dashboard access in production, set an environment variable on your host:
+
+- `SITE_STATS_TOKEN`: strong random token used for dashboard authentication
+
+Open the dashboard with:
+
+- `https://your-domain/analytics-dashboard.php?token=YOUR_TOKEN`
+
+Important hosting requirement:
+
+- Ensure the web server can create/write the `data/` directory and files used by analytics (`data/analytics-events.jsonl`, `data/analytics-geo-cache.json`).
