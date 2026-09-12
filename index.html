@@ -1677,6 +1677,50 @@
             font-size:.98rem;
             line-height:1.75;
         }
+        .event-share {
+            display:flex;
+            flex-wrap:wrap;
+            align-items:center;
+            gap:.8rem;
+            margin-top:.2rem;
+            padding-top:.1rem;
+        }
+        .event-share-label {
+            color:var(--gold);
+            font-size:.74rem;
+            letter-spacing:1.8px;
+            text-transform:uppercase;
+            font-weight:900;
+        }
+        .event-share-buttons {
+            display:flex;
+            flex-wrap:wrap;
+            gap:.65rem;
+        }
+        .event-share-btn {
+            display:inline-flex;
+            align-items:center;
+            justify-content:center;
+            width:38px;
+            height:38px;
+            border-radius:50%;
+            border:1px solid rgba(201,168,76,.35);
+            background:rgba(255,255,255,.04);
+            color:var(--white);
+            transition:transform var(--t), box-shadow var(--t), border-color var(--t), background var(--t);
+            text-decoration:none;
+        }
+        .event-share-btn:hover {
+            transform:translateY(-3px);
+            border-color:rgba(201,168,76,.7);
+            background:rgba(201,168,76,.13);
+            box-shadow:0 10px 22px rgba(0,0,0,.22);
+        }
+        .event-share-btn.facebook:hover { color:#1877F2; }
+        .event-share-btn.whatsapp:hover { color:#25D366; }
+        .event-share-btn.twitter:hover { color:#1DA1F2; }
+        .event-share-btn.linkedin:hover { color:#0A66C2; }
+        .event-share-btn.email:hover { color:var(--gold-light); }
         .event-meta {
             display:grid;
             gap:.9rem;
@@ -3465,6 +3509,16 @@
                         <a href="#contact" class="btn-gold" id="eventPrimaryAction"><i class="fas fa-envelope-open-text"></i> <span>Send Birthday Wishes</span></a>
                         <a href="#events" class="btn-ghost" id="eventSecondaryAction"><i class="fas fa-calendar-days"></i> <span>View Events</span></a>
                     </div>
+                    <div class="event-share" aria-label="Share this event">
+                        <span class="event-share-label">Share</span>
+                        <div class="event-share-buttons">
+                            <a class="event-share-btn facebook" id="eventShareFacebook" href="#" target="_blank" rel="noopener noreferrer" aria-label="Share on Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a class="event-share-btn whatsapp" id="eventShareWhatsapp" href="#" target="_blank" rel="noopener noreferrer" aria-label="Share on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                            <a class="event-share-btn twitter" id="eventShareTwitter" href="#" target="_blank" rel="noopener noreferrer" aria-label="Share on X"><i class="fab fa-twitter"></i></a>
+                            <a class="event-share-btn linkedin" id="eventShareLinkedIn" href="#" target="_blank" rel="noopener noreferrer" aria-label="Share on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            <a class="event-share-btn email" id="eventShareEmail" href="#" aria-label="Share by email"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -4299,6 +4353,11 @@
         const eventMetaList = document.getElementById('eventMetaList');
         const eventPrimaryAction = document.getElementById('eventPrimaryAction');
         const eventSecondaryAction = document.getElementById('eventSecondaryAction');
+        const eventShareFacebook = document.getElementById('eventShareFacebook');
+        const eventShareWhatsapp = document.getElementById('eventShareWhatsapp');
+        const eventShareTwitter = document.getElementById('eventShareTwitter');
+        const eventShareLinkedIn = document.getElementById('eventShareLinkedIn');
+        const eventShareEmail = document.getElementById('eventShareEmail');
         const archivePrevBtn = document.getElementById('archiveScrollPrev');
         const archiveNextBtn = document.getElementById('archiveScrollNext');
         const archiveIndicators = document.getElementById('archiveIndicators');
@@ -4531,6 +4590,29 @@
         }
         window.addEventListener('resize', updateArchiveIndicator);
 
+        function updateEventShareLinks() {
+            const title = eventBox?.dataset.eventTitle || 'Upcoming Event';
+            const date = eventBox?.dataset.eventDateLabel || '';
+            const venue = eventBox?.dataset.eventVenue || '';
+            const shareBase = `${window.location.origin}${window.location.pathname}#events`;
+            const shareText = `${title}${date ? ` — ${date}` : ''}${venue ? ` at ${venue}` : ''}`;
+            const shareBody = `${shareText}\n\n${shareBase}`;
+
+            const shareUrls = {
+                facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareBase)}`,
+                whatsapp: `https://wa.me/?text=${encodeURIComponent(shareBody)}`,
+                twitter: `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(shareBase)}`,
+                linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(shareBase)}`,
+                email: `mailto:?subject=${encodeURIComponent(title)}&body=${encodeURIComponent(shareBody)}`
+            };
+
+            if (eventShareFacebook) eventShareFacebook.href = shareUrls.facebook;
+            if (eventShareWhatsapp) eventShareWhatsapp.href = shareUrls.whatsapp;
+            if (eventShareTwitter) eventShareTwitter.href = shareUrls.twitter;
+            if (eventShareLinkedIn) eventShareLinkedIn.href = shareUrls.linkedin;
+            if (eventShareEmail) eventShareEmail.href = shareUrls.email;
+        }
+
         function applyEventCard(card) {
             if (!card || !eventBox) return;
             const data = card.dataset;
@@ -4578,6 +4660,8 @@
                 eventSecondaryAction.href = data.eventSecondaryHref || '#events';
                 eventSecondaryAction.innerHTML = `<i class="${data.eventSecondaryIcon || 'fas fa-location-dot'}"></i> <span>${data.eventSecondaryLabel || 'View Details'}</span>`;
             }
+
+            updateEventShareLinks();
 
             eventCards.forEach(item => {
                 const active = item === card;
